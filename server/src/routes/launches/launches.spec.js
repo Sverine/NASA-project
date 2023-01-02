@@ -12,7 +12,7 @@ describe('Launches API',()=>{
     describe('Test GET/launches',()=>{
         test('It should respond with 200 success status code',async()=>{
             const response = await request(app)
-            .get('/launches')
+            .get('/v1/launches')
             //this is a regular expression, means, Content-Type must contains json
             .expect('Content-Type',/json/)
             .expect(200);
@@ -34,7 +34,7 @@ describe('Launches API',()=>{
         }
         test('It should respond with 201 created', async()=>{
             const response = await request(app)
-                .post('/launches')
+                .post('/v1/launches')
                 .send(completeLaunchData)
                 .expect('Content-Type',/json/)
                 .expect(201)
